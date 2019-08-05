@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style type="text/css">
+h1{
+	color: red;
+}
+h2{
+	color:white;
+}
+#mainCnt{
+	margin: 0px;
+	margin-top:50px;
+	margin-left:200px;
+	width: 800px;
+	font-family:Calibri;
+}
+
+#footer{
+	background-color: black;
+	color:white;
+	font-weight: bold;
+	font-style:italic;
+	font-size:12px;
+	padding: 10px 10px 10px 10px;
+	border-top: 1px solid;
+	border-top-color: white;
+}
+
+
+
+.errMessage{
+	color:red;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 14px;
+}
+h3{
+	color: black;
+}
+.btn{
+
+	padding: 5px 10px 5px 10px;
+	background-color: red;
+	color: white;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+
+</style>
+<script type="text/javascript">
+function validateForm(){
+	var uname=myform.name.value;
+	var uaddress=myform.address.value;
+	var umarks=myform.marks.value;
+	
+	var flag=false;
+	if(uname==""||uname==null){
+		document.getElementById('nameErrMsg').innerHTML=" * Please enter Name.";
+		
+	}
+	else if(uaddress=="" || uaddress==null)
+		{
+		flag=false;
+		document.getElementById('nameErrMsg').innerHTML="";
+		document.getElementById('addressErrMsg').innerHTML=" * Please enter Address.";
+		}
+	else if(umarks=="" || umarks==null)
+	{
+	flag=false;
+	document.getElementById('nameErrMsg').innerHTML="";
+	document.getElementById('addressErrMsg').innerHTML="";
+	document.getElementById('marksErrMsg').innerHTML=" * Please enter Marks.";
+	}
+	else if(uname=="Dilpreet" && uaddress=="Chandigarh"
+		&& umarks=="85"){
+		flag=true;
+		document.getElementById('nameErrMsg').innerHTML="";
+		document.getElementById('addressErrMsg').innerHTML="";
+		document.getElementById('marksErrMsg').innerHTML="";
+		}
+	else{
+		flag=false;
+		document.getElementById('nameErrMsg').innerHTML="";
+		document.getElementById('addressErrMsg').innerHTML="";
+		document.getElementById('marksErrMsg').innerHTML="";
+		alert('Invalid Registration! Please try again!');
+	}
+	
+	if(flag)
+		window.location.href = "success.html";
+	
+	return flag;
+}
+</script>
+
+</head>
+<body id="mainCnt" >
+<div style=" border-radius: 15px;      padding: 20px;    width: 400px;     box-shadow:5px 5px 5px 5px red;">
+<div >
+<h1 align="center"> Student Registration Application </h1>
+<hr>
+
+<form name="myform" method="post">
+	<table>
+		<tr>
+			<th colspan="3" style="color:red;">Student Form </th>
+		</tr>
+		<tr>
+			<td>Student Name:</td>
+			<td>
+				<input type="text" name="name" size="20">
+			</td>
+			<td>
+				<div id="nameErrMsg" class="errMessage"></div>
+			</td>
+		</tr>
+		<tr>
+			<td>Student Address:</td>
+			<td>
+				<input type="text" name="address" size="20">
+			</td>
+			<td>
+				<div id="addressErrMsg" class="errMessage"></div>
+			</td>
+		</tr>
+		<tr>
+			<td>Student Marks:</td>
+			<td>
+				<input type="text" name="marks" size="20">
+			</td>
+			<td>
+				<div id="marksErrMsg" class="errMessage"></div>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<input type="button" class="btn" value="Register" onclick="validateForm()">
+			</td>
+			
+		</tr>
+		
+	</table>
+
+
+</form>
+
+</div>
+
+</div>
+</body>
+</html>
+
+
+
